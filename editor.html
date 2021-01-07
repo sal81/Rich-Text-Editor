@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My text editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body onload = "enableEditMode();">
+<div>
+    <button onclick="execCmd('bold');"><i class="fa fa-bold" aria-hidden="true"></i></button>
+    <button onclick="execCmd('italic');"><i class="fa fa-italic" aria-hidden="true"></i></button>
+    <button onclick="execCmd('underline');"><i class="fa fa-underline" aria-hidden="true"></i></button>
+    <button onclick="execCmd('strikethrough');"><i class="fa fa-strikethrough" aria-hidden="true"></i></button>
+    <button onclick="execCmd('justifyLeft');"><i class="fa fa-align-left" aria-hidden="true"></i></button>
+    <button onclick="execCmd('justifyRight');"><i class="fa fa-align-right" aria-hidden="true"></i></button>
+    <button onclick="execCmd('justifyCenter');"><i class="fa fa-align-center" aria-hidden="true"></i></button>
+    <button onclick="execCmd('justfyFull');"><i class="fa fa-align-justify" aria-hidden="true"></i></button>
+    <button onclick="execCmd('cut');"><i class="fa fa-cut" aria-hidden="true"></i></button>
+    <button onclick="execCmd('copy');"><i class="fa fa-copy" aria-hidden="true"></i></button>    
+    <!-- <button id ="paste"><i class="fa fa-paste" aria-hidden="true"></i></button> -->
+    <button onclick="execCmd('paste');"> <i class="fa fa-paste" aria-hidden="true"></i> </button>
+    <button onclick="execCmd('indent');"><i class="fa fa-indent" aria-hidden="true"></i></button>
+    <button onclick="execCmd('dedent');"><i class="fa fa-outdent" aria-hidden="true"></i></button>
+    <button onclick="execCmd('subscript');"><i class="fa fa-subscript" aria-hidden="true"></i></button>
+    <button onclick="execCmd('superscript');"><i class="fa fa-superscript" aria-hidden="true"></i></button>
+    <button onclick="execCmd('undo');"><i class="fa fa-undo" aria-hidden="true"></i></button>
+    <button onclick="execCmd('redo');"><i class="fa fa-repeat" aria-hidden="true"></i></button>
+    <button onclick="execCmd('insertUnorderedList');"><i class="fa fa-list-ul" aria-hidden="true"></i></button>
+    <button onclick="execCmd('insertOrderedList');"><i class="fa fa-list-ol" aria-hidden="true"></i></button>
+    <button onclick="execCmd('insertParagraph');"><i class="fa fa-paragraph" aria-hidden="true"></i></button>
+
+
+    <select onclick="execCommandWithArg('formatBlock', this.value);">
+        <option value ="H1">H1</option>
+        <option value ="H2">H2</option>
+        <option value ="H3">H3</option>
+        <option value ="H4">H4</option>
+        <option value ="H5">H5</option>
+        <option value ="H6">H6</option>
+    </select>
+
+    <button onclick="execCmd('insertHorizontalRule');">HR</button>
+    <button onclick="execCommandWithArg('createLink', prompt('Enter a url', ''));"><i class="fa fa-link" aria-hidden="true"></i></button>
+    <button onclick="execCmd('unlink');"><i class="fa fa-unlink" aria-hidden="true"></i></button>
+    <button onclick="toggleSource();"><i class="fa fa-code" aria-hidden="true"></i></button>
+    <button onclick="toggleEdit();"><i class="fa fa-ban" aria-hidden="true"></i></button>
+    <br/>
+    <select onclick="execCommandWithArg('fontName', this.value);">
+        <option value ="Times New Roman">Times New Roman</option>
+        <option value ="Georgia">Georgia</option>
+        <option value ="Sans-serif">Sans-serif	Arial</option>
+        <option value ="Verdana">Verdana</option>
+        <option value ="Arial">	Arial</option>
+        <option value ="Helvetica">Helvetica</option>
+        <option value ="Lucida Console">Lucida Console</option>
+        <option value ="Monaco">Monaco</option>
+        <option value ="Brush Script MT">Brush Script MT</option>
+        <option value ="Lucida Handwriting">Lucida Handwriting</option>
+        <option value ="Copperplate">Copperplate</option>
+        <option value ="Papyrus">Papyrus</option>
+    </select>
+
+    <select onclick="execCommandWithArg('fontSize', this.value);">
+        <option value ="1">1</option>
+        <option value ="2">2</option>
+        <option value ="3">3</option>
+        <option value ="4">4</option>
+        <option value ="5">5</option>
+        <option value ="8">8</option>
+        <option value ="10">10</option>
+        <option value ="15">15</option>
+        <option value ="24">24</option>
+    </select>
+
+    FG color: <input type = "color" onclick="execCommandWithArg('foreColor', this.value);"/>
+    BG color: <input type = "color" onclick="execCommandWithArg('backColor', this.value);"/>
+    <button onclick="execCommandWithArg('insertImage', prompt('Enter a url', ''));"><i class="fa fa-file-image-o" aria-hidden="true"></i></button>
+    <button onclick="execCmd('selectAll');"><i class="fa fa-check" aria-hidden="true"></i></button>
+</div>
+
+
+<iframe name ="richTextField" allow="clipboard-read; clipboard-write" width="1100" height="580"  frameborder="6" allowfullscreen></iframe>
+
+
+<script src="editor.js">
+   
+</script>
+    
+</body>
+</html>
